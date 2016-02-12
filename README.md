@@ -8,7 +8,5 @@ public final synchronized void join(long millis): This method is used to wait fo
 
 public final synchronized void join(long millis, int nanos): This method is used to wait for thread to die for given milliseconds plus nanoseconds.
 
-Here is a simple example showing usage of Thread join methods. The goal of the program is to makesure main is the last thread to finish and third thread starts only when first one is dead.
-
 read more : 
 http://www.journaldev.com/1024/java-thread-join-example-with-explanation
