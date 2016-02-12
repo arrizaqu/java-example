@@ -1,12 +1,6 @@
-#Thread Join
+#Java Thread Sleep
 
-Java Thread join method can be used to pause the current thread execution until unless the specified thread is dead. There are three overloaded join functions.
-
-public final void join(): This method puts the current thread on wait until the thread on which it’s called is dead. If the thread is interrupted, it throws InterruptedException.
-
-public final synchronized void join(long millis): This method is used to wait for the thread on which it’s called to be dead or wait for specified milliseconds. Since thread execution depends on OS implementation, it doesn’t guarantee that the current thread will wait only for given time.
-
-public final synchronized void join(long millis, int nanos): This method is used to wait for thread to die for given milliseconds plus nanoseconds.
+Thread.sleep() interacts with the thread scheduler to put the current thread in wait state for specified period of time. Once the wait time is over, thread state is changed to runnable state and wait for the CPU for further execution. So the actual time that current thread sleep depends on the thread scheduler that is part of operating system.
 
 read more : 
-http://www.journaldev.com/1024/java-thread-join-example-with-explanation
+http://www.journaldev.com/1020/java-thread-sleep-example
