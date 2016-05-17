@@ -1,1 +1,1 @@
-#Java Thread Example
+#Java Example
