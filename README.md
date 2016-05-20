@@ -1,6 +1,6 @@
-#Ajax-Json di Java Spring Controller.
+##Ajax-Json di Java Spring Controller.
 
-- untuk menggunakannya lebih mudah dengan  menambahkan library berkut : 
+#library : 
 	* Maven : 
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
