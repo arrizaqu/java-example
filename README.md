@@ -99,4 +99,6 @@
 			}
 		}
 	
-## good luck..!!!
+#Reference
+* http://www.mkyong.com/java/jackson-2-convert-java-object-to-from-json/
+* http://stackoverflow.com/questions/12539270/downloading-jackson-codehaus-org-jar
