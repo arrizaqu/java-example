@@ -15,90 +15,78 @@
 		
 #Javascript :  
 	* code : 
-		//untuk html.
-		<input type="text" name="search" id="search" />
-			<script type="text/javascript">
-			
-			// untuk jquery event listener.
-			$(document).ready(function(){
-				element = $('#search');
-				element.on('keyup', function(){
-					data = element.val();
-					$.ajax({
-						type:'GET',
-						header:{
-							Accept: "application/json; charset=utf-8",
-							"Content-Type":"application/json; charset=utf-8",
-						},
-						url:'${pageContext.request.contextPath}/ajax/'+data,
-						success:function(data){
-							console.log(data);
-							nama = data.name;
-							email = data.email;
-							alert(nama);
-							alert(email)
-						},
-						dataType: 'json'
-					});
-				});
-			});
-		</script>
-		
+	
+		var userlogin = {
+			username: "masyda arrizaqu",
+			password: "jum'ata afsdf#$%^&*()"
+		};
+	
+		var userToSubscribe = {
+			username: "newuser",
+			password: "newpassword",
+			email: "user@1and1.es"
+		};
+
+		var openid = "myopenid";
+		$.ajax({
+			type:'POST',
+			url:'/ajax/',
+			//dataType: 'json',
+			contentType: 'application/json',
+		   data: JSON.stringify(
+				   {  userlogin: userlogin, 
+					   userToSubscribe: userToSubscribe, 
+					   openid: openid 
+					}), 
+			success:function(data){
+				console.log(data);
+			}
+		});
+
 #Java Spring Controller
 	* code : 
 		@Controller
-		public class testController {
+		public class testController{
 
-			@RequestMapping(value ="/ajax/{noref}",produces = "application/json")
-			public @ResponseBody String index(@PathVariable(value="noref") String noref, Model model){
-				
+			@RequestMapping(value ="/ajax/", method = RequestMethod.POST/*, consumes="application/json",headers = "content-type=application/x-www-form-urlencoded"*/)
+			public @ResponseBody String index(@RequestBody String employee, Model model){
 				ObjectMapper mapper = new ObjectMapper();
-				//jika diperlukan untuk fileter
-				//String data = noref;
-				
-				// example jika menghasilkan data single
-				List<User> data = new ArrayList();
-				User user = new User();
-				user.setName("arrizaqu");
-				user.setEmail("example@xml.com");
-				user.setPassword("fasdfasdf");
-				
-				// contoh jika menghasilkan data lebih daripada satu
-				String myreturn = null;
 				try{
-					//untuk data yang menghasilkan single.
-					myreturn = mapper.writeValueAsString(user);
-					
-					//untuk data yang menghasiilkan banyak.
-					/*
-					List<User> ct= new ArrayList<>();
-					User users1 = new User();
-					users1.setName("arrizaqu");
-					users1.setEmail("example@xml1.com");
-					users1.setPassword("fasdfasdf");
-					
-					User users2 = new User();
-					users2.setName("arrizaqu2");
-					users2.setEmail("example@xml2.com");
-					users2.setPassword("fasdfasdf");
-					
-					User users3 = new User();
-					users3.setName("arrizaqu3");
-					users3.setEmail("example@xml3.com");
-					users3.setPassword("fasdfasdf");
-					
-					ct.add(users1);
-					ct.add(users2);
-					ct.add(users3);
-					
-					myreturn = mapper.writeValueAsString(ct);
-					*/
-				}catch(Exception e){}
+					//jika hanya single entity
+					JsonNode node = mapper.readTree(employee);
+					UserLogin userLogin = mapper.convertValue(node.get("userlogin"), UserLogin.class);
+						System.out.println("name : "+ userLogin.getUsername());
+						System.out.println("password : "+ userLogin.getPassword());
+				} catch(Exception e){
+					e.printStackTrace();
+				}
 				
-				return   myreturn;
+				return  "successfully loaded..!!";
 			}
 		}
-	
+
+		class UserLogin{
+			public String username;
+			public String password;
+			
+			public void setPassword(String password) {
+				this.password = password;
+			}
+			
+			public void setUsername(String username) {
+				this.username = username;
+			}
+			
+			public String getPassword() {
+				return password;
+			}
+			
+			public String getUsername() {
+				return username;
+			}
+		}
+		
 #Reference
-* http://www.mkyong.com/java/jackson-2-convert-java-object-to-from-json/
-* http://stackoverflow.com/questions/12539270/downloading-jackson-codehaus-org-jar
+http://stackoverflow.com/questions/6349421/how-to-use-jackson-to-deserialise-an-array-of-objects
+http://stackoverflow.com/questions/19654120/problems-sending-multiple-objects-through-post-and-spring-mvc
+
