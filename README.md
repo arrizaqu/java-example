@@ -1,4 +1,4 @@
-##Ajax-Json di Java Spring Controller.
+##Send Js Object to Spring Controller with JSON jackson mapper.
 
 #library : 
 	* Maven : 
