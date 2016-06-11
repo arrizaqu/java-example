@@ -1,5 +1,6 @@
-##Java web starter with maven
-	#create simple pom.xml
+#Java web starter with maven
+##create simple pom.xml
+	##code : 
 		<?xml version="1.0" encoding="UTF-8"?>
 		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -12,7 +13,8 @@
 			<description>my web myapplication</description>
 		</project>
 
-	##note : 
+##note : 
+	##NB
 		- create src/main/{java, webapp}
 		- run : mvn clean tomcat:run
 		- change port Oracle: 
@@ -23,7 +25,7 @@
 			  4  /
   
 ## simple Spring boot xml POM fast Configuration
-	code : 
+	##code : 
 		<?xml version="1.0" encoding="UTF-8"?>
 			<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -54,7 +56,6 @@
 						<scope>test</scope>
 					</dependency>
 				</dependencies>
-				   
 					 <build>
 						<plugins>
 						  <plugin>
@@ -66,6 +67,5 @@
 						  </plugin>
 						</plugins>
 					  </build>
-					
 			</project>
 
