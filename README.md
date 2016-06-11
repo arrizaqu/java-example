@@ -1,29 +1,28 @@
 ##Java web starter with maven
-
-- create pom.xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.javaweb</groupId>
-	<artifactId>build-web-app</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>web-application</name>
-	<description>my web myapplication</description>
-</project>
+	#create simple pom.xml
+		<?xml version="1.0" encoding="UTF-8"?>
+		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+			<modelVersion>4.0.0</modelVersion>
+			<groupId>com.javaweb</groupId>
+			<artifactId>build-web-app</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<packaging>war</packaging>
+			<name>web-application</name>
+			<description>my web myapplication</description>
+		</project>
 
 	##note : 
 		- create src/main/{java, webapp}
 		- run : mvn clean tomcat:run
-		- if you want to change oracle port can chage with plsql like: 
+		- change port Oracle: 
 			SQL> connect system@xe
 			SQL> begin
 			  2  dbms_xdb.sethttpport('9090');
 			  3  end;
 			  4  /
   
-## full Spring boot xml POM Configuration
+## simple Spring boot xml POM fast Configuration
 	code : 
 		<?xml version="1.0" encoding="UTF-8"?>
 			<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
