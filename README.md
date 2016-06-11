@@ -13,15 +13,15 @@
 	<description>my web myapplication</description>
 </project>
 
-note : 
-- create src/main/{java, webapp}
-- run : mvn clean tomcat:run
-- if you see comflict with oracle port can chage with plsql like this : 
-SQL> connect system@xe
-SQL> begin
-  2  dbms_xdb.sethttpport('9090');
-  3  end;
-  4  /
+	##note : 
+		- create src/main/{java, webapp}
+		- run : mvn clean tomcat:run
+		- if you want to change oracle port can chage with plsql like: 
+			SQL> connect system@xe
+			SQL> begin
+			  2  dbms_xdb.sethttpport('9090');
+			  3  end;
+			  4  /
   
 ## full Spring boot xml POM Configuration
 	code : 
