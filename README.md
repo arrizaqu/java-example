@@ -1,4 +1,4 @@
-#Json Parse As Return
+#ZK Application example
 
 ##Rest with json return.
 	- RestController Annotation.
