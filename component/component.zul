@@ -1,0 +1,251 @@
+<?page title="component example" contentType="text/html;charset=UTF-8"?>
+<zk>
+<html:link xmlns:html="native" html:rel="stylesheet" html:href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" html:integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" html:crossorigin="anonymous"></html:link>
+
+<html:link xmlns:html="native" html:rel="stylesheet" html:href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" html:integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" html:crossorigin="anonymous"></html:link>
+<html:script xmlns:html="native" html:src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" html:integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" html:crossorigin="anonymous"></html:script>
+<html:script xmlns:html="native" html:type="text/javascript">
+	console.log("hallo javascript");
+</html:script>
+<zscript>
+	Messagebox.show("hallo world")
+</zscript>
+<window title="textbox component" border="normal">
+	<textbox value="text..." constraint="no empty: field tidak boleh kosong!" />
+	<textbox value="secret" type="password" />
+	<textbox constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address" />
+	<textbox rows="5" cols="40">
+	    <attribute name="value">
+			text line1... 
+			text line2...
+	    </attribute>
+	</textbox>
+</window>
+<!-- List Box -->
+<window border="normal" title="listbox component">
+	<listbox id="box" multiple="true" checkmark="true">
+        <listhead>
+            <listheader label="Name" sort="auto" />
+            <listheader label="Gender" sort="auto" />
+            <listheader label="Age" sort="auto" />
+        </listhead>
+        <listitem>
+            <listcell label="Mary" />
+            <listcell label="FEMALE" />
+            <listcell label="18" />
+        </listitem>
+        <listitem>
+            <listcell label="John" />
+            <listcell label="MALE" />
+            <listcell label="20" />
+        </listitem>
+        <listitem>
+            <listcell label="Jane" />
+            <listcell label="FEMALE" />
+            <listcell label="32" />
+        </listitem>
+        <listitem>
+            <listcell label="Henry" />
+            <listcell label="MALE" />
+            <listcell label="29" />
+        </listitem>
+	    <listitem>
+	      <listcell label="Mark" />
+	      <listcell label="MALE" />
+	      <listcell label="15" />
+	    </listitem>
+	    <listitem>
+	      <listcell label="Jeffery" />
+	      <listcell label="MALE" />
+	      <listcell label="17" />
+	    </listitem>
+	    <listitem>
+	      <listcell label="Rebecca" />
+	      <listcell label="FEMALE" />
+	      <listcell>
+	      	<button label="update" />
+	      	<button label="delete" />
+	      </listcell>
+	    </listitem>
+	   </listbox>
+</window>
+
+<!-- Vbox / Hbox -->
+<window title="hbox and vbox component" border="normal">
+	<vbox>
+		 <button label="Button 1"/>
+		 <button label="Button 2"/>
+	 </vbox>
+	 <hbox>
+		 <button label="Button 3"/>
+		 <button label="Button 4"/>
+	 </hbox>
+</window>
+<!-- radio button -->
+<!-- label -->
+<!-- image -->
+<!-- grid -->
+<!-- native html component -->
+<window title="native and bootstrap component" border="normal">
+	<!-- native html -->
+	<n:form xmlns:n="native">
+	  <n:div n:class="form-group">
+	    <n:label n:for="exampleInputEmail1">Email address</n:label>
+	    <n:input n:style="width: 150px;" n:type="email" n:class="form-control" n:id="exampleInputEmail1" n:placeholder="Email" />
+	  </n:div>
+	  <n:div n:class="form-group">
+	    <n:label n:for="exampleInputPassword1">Password</n:label>
+	    <n:input n:style = "width: 150px;" n:type="password" n:class="form-control" n:id="exampleInputPassword1" n:placeholder="Password" />
+	  </n:div>
+	  <n:div n:class="form-group">
+	    <n:label n:for="exampleInputFile">File input</n:label>
+	    <n:input type="file" n:id="exampleInputFile"></n:input>
+	    <n:p class="help-block">Example block-level help text here.</n:p>
+	  </n:div>
+	  <n:div n:class="checkbox">
+	    <n:label>
+	      <n:input n:type="checkbox" /> Check me out
+	    </n:label>
+	  </n:div>
+	  <n:button n:type="submit" n:class="btn btn-default">Submit</n:button>
+	</n:form>
+	<html:table html:class="table table-bordered  table-striped  table-hover" xmlns:html="native">
+		<html:thead>
+			<html:tr>
+				<html:th>Name</html:th>
+				<html:th>Address</html:th>
+				<html:th>Email</html:th>
+			</html:tr>
+		</html:thead>
+		<html:tbody>
+			<html:tr>
+				<html:td>masyda arrizaqu</html:td>
+				<html:td>seputih banyak lampung tengah</html:td>
+				<html:td>arrizaqu@yahoo.com</html:td>
+			</html:tr>
+			<html:tr>
+				<html:td>masyda arrizaqu</html:td>
+				<html:td>seputih banyak lampung tengah</html:td>
+				<html:td>arrizaqu@yahoo.com</html:td>
+			</html:tr>
+			<html:tr>
+				<html:td>masyda arrizaqu</html:td>
+				<html:td>seputih banyak lampung tengah</html:td>
+				<html:td>arrizaqu@yahoo.com</html:td>
+			</html:tr>
+			<html:tr>
+				<html:td>masyda arrizaqu</html:td>
+				<html:td>seputih banyak lampung tengah</html:td>
+				<html:td>arrizaqu@yahoo.com</html:td>
+			</html:tr>
+			<html:tr>
+				<html:td>masyda arrizaqu</html:td>
+				<html:td>seputih banyak lampung tengah</html:td>
+				<html:td>arrizaqu@yahoo.com</html:td>
+			</html:tr>
+			<html:tr>
+				<html:td>masyda arrizaqu</html:td>
+				<html:td>seputih banyak lampung tengah</html:td>
+				<html:td>arrizaqu@yahoo.com</html:td>
+			</html:tr>
+			<html:tr>
+				<html:td>masyda arrizaqu</html:td>
+				<html:td>seputih banyak lampung tengah</html:td>
+				<html:td>arrizaqu@yahoo.com</html:td>
+			</html:tr>
+			<html:tr>
+				<html:td>masyda arrizaqu</html:td>
+				<html:td>seputih banyak lampung tengah</html:td>
+				<html:td>arrizaqu@yahoo.com</html:td>
+			</html:tr>
+		</html:tbody>
+	</html:table>
+</window>
+<window title="tablelayout component" border="normal">
+must be ZK EE !!
+	<!-- <tablelayout columns="2">
+    <tablechildren>
+        <panel title="Table 1" border="normal" maximizable="true"
+            collapsible="true" width="200px" height="200px">
+            <panelchildren>Panel Content</panelchildren>
+        </panel>
+    </tablechildren>
+    <tablechildren>
+        <panel title="Table 2" border="normal" maximizable="true"
+            collapsible="true" width="200px" height="200px">
+            <panelchildren>Panel Content</panelchildren>
+        </panel>
+    </tablechildren>
+    <tablechildren>
+        <panel title="Table 3" border="normal" maximizable="true"
+            collapsible="true" width="200px" height="200px">
+            <panelchildren>Panel Content</panelchildren>
+        </panel>
+    </tablechildren>
+    <tablechildren>
+        <panel title="Table 4" border="normal" maximizable="true"
+            collapsible="true" width="200px" height="200px">
+            <panelchildren>Panel Content</panelchildren>
+        </panel>
+    </tablechildren>
+</tablelayout> -->
+</window>
+<window title="grid, vbox, hbox, dropdown component" border="normal" >
+	 <grid>
+        <columns sizable="true">
+            <column label="Type" sortAscending="&#36;{asc}" sortDescending="&#36;{dsc}" width="50px"/>
+            <column label="Content"/>
+        </columns>
+        <rows>
+            <row>
+                <label value="File:"/>
+                <textbox width="99%"/>
+            </row>
+            <row>
+                <label value="Type:"/>
+                <hbox>
+                    <listbox rows="1" mold="select">
+                        <listitem label="Java Files,(*.java)"/>
+                        <listitem label="All Files,(*.*)"/>
+                    </listbox>
+                    <button label="Browse..."/>
+                </hbox>
+            </row>
+            <row>
+                <label value="Options:"/>
+                <textbox rows="3" width="99%"/>
+            </row>
+        </rows>
+    </grid>
+    
+    <grid width="300px" mold="paging" pageSize="4">
+    <columns>
+        <column label="Left"/>
+        <column label="Right"/>
+    </columns>
+    <rows>
+        <row>
+            <label value="Item 1.1"/><label value="Item 1.2"/>
+        </row>
+        <row>
+            <label value="Item 2.1"/><label value="Item 2.2"/>
+        </row>
+        <row>
+            <label value="Item 3.1"/><label value="Item 3.2"/>
+        </row>
+        <row>
+            <label value="Item 4.1"/><label value="Item 4.2"/>
+        </row>
+        <row>
+            <label value="Item 5.1"/><label value="Item 5.2"/>
+        </row>
+        <row>
+            <label value="Item 6.1"/><label value="Item 6.2"/>
+        </row>
+        <row>
+            <label value="Item 7.1"/><label value="Item 7.2"/>
+        </row>
+    </rows>
+</grid>
+</window>
+</zk>
