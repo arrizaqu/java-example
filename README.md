@@ -66,3 +66,5 @@
 		
 ##Referency
 1. https://hc.apache.org/httpcomponents-client-ga/download.html
+2. http://stackoverflow.com/questions/19400867/string-to-jsonobject-in-java
+3. http://hayageek.com/android-http-post-get/
