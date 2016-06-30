@@ -11,7 +11,7 @@
 3. JSONObject / JSONArray example 
 
 
-##Add Depedency
+##Add Depedency HttpComponent 
 	- maven : 
 		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime -->
 		<dependency>
