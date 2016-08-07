@@ -1,74 +1,57 @@
-#Java Issue and More
-1. Java Cannot load any files @assets 
-2. Generate Value with UUID
-3. Conflict port 8080 with Oracle 
-4. Jetty Mortbay on maven pom configuration 
+#Java Validation 
 
-##Java Cannot load any files @assets 
-	- solution : add default servlet mapping with star. 
-		<servlet-mapping>
-			<servlet-name>default</servlet-name>
-			<url-pattern>/assets/*</url-pattern>
-		</servlet-mapping>
+##Validation
+1. JSR 303 
+	- Add dependency hibernate validator.
+	
+2. JQUERY Validation
+	- Rest
+	- Controller
 
-##Generate Value with UUID
-	- java code example : 
-		@Id
-		@GeneratedValue(generator="uuid")
-		@GenericGenerator(name="uuid", strategy="uuid2")
-		private String id;
+##JSR 303
+	- Dependency :
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>4.3.2.Final</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		    <version>1.0.0.GA</version>
+		</dependency>
+		
+	- example code 1:
+		- Entity :
+			@NotNull
+			@NotEmpty
+			@Size(min=3, max=10)
+			private String name;
+			@Email(message = "email not valid..!!")
+			private String email;
+			
+		- controller : 
+			public String save(@Valid @ModelAttribute("employee") Employee employee, BindingResult result){
+				if(result.hasErrors()){
+					return "employee";
+				}
+				
+				return "redirect:/employee";
+			}
 
-##Conflict port 8080 with Oracle
-	- oracle sql :
-		change port Oracle: 
-        SQL> connect system@xe
-        SQL> begin
-          2  dbms_xdb.sethttpport('9090');
-          3  end;
-          4  /
-
-##Jetty Mortbay on maven pom configuration 
-	- code :
-		<build>
-			<plugins>
-					<plugin>
-						<groupId>org.mortbay.jetty</groupId>
-						<artifactId>maven-jetty-plugin</artifactId>
-						<version>6.1.10</version>
-						<configuration>
-							<scanIntervalSeconds>5</scanIntervalSeconds>
-							<stopKey>foo</stopKey>
-							<stopPort>9999</stopPort>
-						</configuration>
-						<executions>
-							<execution>
-								<id>start-jetty</id>
-								<phase>pre-integration-test</phase>
-								<goals>
-									<goal>run</goal>
-								</goals>
-								<configuration>
-									<scanIntervalSeconds>0</scanIntervalSeconds>
-									<daemon>true</daemon>
-								</configuration>
-							</execution>
-							<execution>
-								<id>stop-jetty</id>
-								<phase>post-integration-test</phase>
-								<goals>
-									<goal>stop</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				<!-- Build war -->
-					<plugin>
-						<artifactId>maven-war-plugin</artifactId>
-						<groupId>org.apache.maven.plugins</groupId>
-						<version>2.1.1</version>
-					</plugin>
-			</plugins>
-		</build>
-
-#Refference 
-1. http://stackoverflow.com/questions/22965738/how-to-serve-static-files-in-my-web-application-on-tomcat
+		- view / JSP example : 
+			<form:form action="${pageContext.request.contextPath}/employee/add" commandName="employee">
+				<form:errors path="*" cssClass="error" />
+				<form:input path="name" />
+				<form:input path="email"/>
+					<form:errors path="email" cssClass="error" />
+				<input type="submit" name="submit">
+			</form:form>
+			
+	
+	- example code 2: 
+	
+##Reference 
+1. http://docs.oracle.com/javaee/6/tutorial/doc/gircz.html
+2. https://jqueryvalidation.org/
