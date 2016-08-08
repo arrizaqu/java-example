@@ -32,15 +32,17 @@
 			private String email;
 			
 		- controller : 
+			@RequestMapping( value="/add", method = RequestMethod.POST) 
 			public String save(@Valid @ModelAttribute("employee") Employee employee, BindingResult result){
 				if(result.hasErrors()){
 					return "employee";
 				}
-				
 				return "redirect:/employee";
 			}
 
 		- view / JSP example : 
+			<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+			<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 			<form:form action="${pageContext.request.contextPath}/employee/add" commandName="employee">
 				<form:errors path="*" cssClass="error" />
 				<form:input path="name" />
