@@ -3,6 +3,7 @@
 2. Generate Value with UUID
 3. Conflict port 8080 with Oracle 
 4. Jetty Mortbay on maven pom configuration 
+5. JSP viewRevolver 
 
 ##Java Cannot load any files @assets 
 	- solution : add default servlet mapping with star. 
@@ -70,5 +71,17 @@
 			</plugins>
 		</build>
 
+## JSP ViewRevolver
+	code : 
+		<bean
+			id="viewResolver"
+			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+			<property name="prefix">
+				<value>/WEB-INF/jsp/</value>
+			</property>
+			<property name="suffix">
+				<value>.jsp</value>
+			</property>
+		</bean>
 #Refference 
 1. http://stackoverflow.com/questions/22965738/how-to-serve-static-files-in-my-web-application-on-tomcat
